@@ -1,10 +1,10 @@
-<?php 
-
+<?php
 namespace Hcode\Model;
 
 use \Hcode\Db\Sql;
 use \Hcode\Model;
 use \Hcode\Mailer;
+
 
 
 class User extends Model {
@@ -260,7 +260,7 @@ class User extends Model {
  			$sql = new Sql();
  			$sql->query("UPDATE tb_users SET despassword =:password WHERE iduser = :iduser", array(
 
- 				":passowrd"=>$password,
+ 				":password"=>$password,
  				":iduser"=>$this->getiduser()
  			));
 
