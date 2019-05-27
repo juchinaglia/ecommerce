@@ -85,7 +85,8 @@ class User extends Model {
 			return $user;
 
 
-		}else{
+		}
+		else{
 
 			throw new \Exception("Usuário não encontrado ou senha inválida");
 
