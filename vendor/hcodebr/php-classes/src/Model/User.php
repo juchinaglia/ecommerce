@@ -259,9 +259,8 @@ class User extends Model {
                  "name"=>$data['desperson'],
                  "link"=>$link
              )); 
-
              $mailer->send();
-             return $data;
+             return $link;
          }
      }
  }
@@ -293,9 +292,8 @@ class User extends Model {
      else
      {
          return $results[0];
-	    	 }
- 		}	
-
+     }
+ }
  		public static function setForgotUsed($idrecovery)
 
  		{
