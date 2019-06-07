@@ -30,9 +30,13 @@ class User extends Model {
 	public static function checkLogin($inadmin = true)
 	{
 
-		if(!isset($_SESSION[User::SESSION]) 
-		|| !$_SESSION[User::SESSION] 
-		|| !(int)$_SESSION[User::SESSION]["iduser"] > 0
+		if
+		(
+		!isset($_SESSION[User::SESSION]) 
+		|| 
+		!$_SESSION[User::SESSION] 
+		|| 
+		!(int)$_SESSION[User::SESSION]["iduser"] > 0
 	) {
 			//Não está logado
 

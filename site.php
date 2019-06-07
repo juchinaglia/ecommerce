@@ -8,6 +8,7 @@ Use \Hcode\Model\Address;
 Use \Hcode\Model\User;
 
 
+
 $app->get('/', function() {
 
 	$products = Product::listAll();
@@ -149,7 +150,7 @@ $app->post("/cart/freight", function(){
 
 $app->get("/checkout", function(){
 
-	User::verifyLogin(false);
+	// User::verifyLogin(false);
 
 	$cart = Cart::getFromSession();
 
@@ -271,9 +272,10 @@ $app->get("/forgot", function(){
 $app->post("/forgot", function()
 
 {
-	$user = User::getForgot($_POST["email"]);
+	$user = User::getForgot($_POST["email"], false);
 
 	header("Location: /forgot/sent");
+	exit;
 
 });
 
