@@ -97,15 +97,17 @@ $this->mail->AltBody = 'This is a plain-text message body';
 //$this->mail->addAttachment('images/phpmailer_mini.png');
 
 //send the message, check for errors
-if (!$this->mail->send()) {
-    echo "Mailer Error: " . $this->mail->ErrorInfo;
-} else {
-    echo "Message sent!";
-    //Section 2: IMAP
-    //Uncomment these to save your message in the 'Sent Mail' folder.
-    #if (save_mail($this->mail)) {
-    #    echo "Message saved!";
-    #}
+public function send() {
+    if (!$this->mail->send()) {
+        echo "Mailer Error: " . $this->mail->ErrorInfo;
+    } else {
+        echo "Message sent!";
+        //Section 2: IMAP
+        //Uncomment these to save your message in the 'Sent Mail' folder.
+        #if (save_mail($this->mail)) {
+            #    echo "Message saved!";
+        #}
+    }
 }
 
 //Section 2: IMAP
