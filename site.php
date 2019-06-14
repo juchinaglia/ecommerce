@@ -340,8 +340,8 @@ $app->get("/profile", function(){
 
 	$page->setTpl("profile",[
 		'user'=>$user->getValues(),
-		'profileMsg'=>'',
-		'profileError'=>''
+		'profileMsg'=>User::getSuccess(),
+		'profileError'=>User::getError()
 
 	]);
 
@@ -354,12 +354,16 @@ $app->post("/profile", function(){
 		if(!isset($_POST['desperson']) || $_POST['desperson'] === ''){
 
 			User::setError("Preencha seu nome");
+			header('Location: /profile');
+			exit;
 
 		}
 
 			if(!isset($_POST['desemail']) || $_POST['desemail'] === ''){
 
 			User::setError("Preencha seu email");
+			header('Location: /profile');
+			exit;
 
 		}
 
@@ -370,6 +374,8 @@ $app->post("/profile", function(){
 		if(User::checkLoginExists($_POST['desemail']) === true){
 
 			User::setError("Este endereço de email já existe");
+			header('Location: /profile');
+			exit;
 
 		}
 
@@ -382,6 +388,8 @@ $app->post("/profile", function(){
 	$user->setData($_POST);
 
 	$user->save();
+
+	User::setSuccess("Dados salvos com sucesso!");
 
 	header('Location: /profile');
 	exit;
