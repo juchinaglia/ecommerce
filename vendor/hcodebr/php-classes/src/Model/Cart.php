@@ -240,16 +240,16 @@ class Cart extends Model {
 
 
 
-			// if ($result->MsgErro != ''){
+			if ($result->MsgErro != ''){
 
-			// 	Cart::setMsgError($result->MsgErro);
+				Cart::setMsgError($result->MsgErro);
 
-			// }else {
+			}else {
 
 
-			// 	Cart::clearMsgError();
+				Cart::clearMsgError();
 
-			// }
+			}
 
 			$result = $xml->Servicos->cServico;
 
