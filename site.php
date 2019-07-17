@@ -153,7 +153,7 @@ $app->post("/cart/freight", function(){
 
 $app->get("/checkout", function(){
 
-		// User::verifyLogin(false);
+		User::verifyLogin(false);
 
 		$address = new Address();
 
@@ -179,6 +179,7 @@ $app->get("/checkout", function(){
 		}
 
 		if(!$address->getdesaddress()) $address->setdesaddress('');
+		if(!$address->getdesnumber()) $address->setdesnumber('');
 		if(!$address->getdescomplement()) $address->setdescomplement('');
 		if(!$address->getdesdistrict()) $address->setdesdistrict('');
 		if(!$address->getdescity()) $address->setdescity('');
